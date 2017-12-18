@@ -42,6 +42,8 @@ div {
 	top: 0px;
 	left: 0px;
 	background: url(bgtile.jpg);
+	background-attachment: fixed;
+	background-repeat: repeat;
 }
 
 /* Ground */
@@ -55,10 +57,11 @@ div {
 
 /* Player */
 #player {
-	width: 32px;
-	height: 61px;
-	top: 57%;
-	background-image: url(idle0.png);
+	width: 83px;
+	height: 100px;
+	top: 50%;
+	left: 0%;
+	background-image: url(run-sprite.png);
 }
 
 /* Enemy */

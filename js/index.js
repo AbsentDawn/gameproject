@@ -1,25 +1,26 @@
 $(function() {
 
-	// //  Viewport Properties
-	// var viewport = $("#viewport");
-	// var viewportW = viewport.width();
-	// var viewportH = viewport.height();
 
-	// // Level id Properties 
-	// var level = $("#level");
-	// var levelW = level.width();
-	// var levelH = level.height();
+	// $('button').click(function() {
+ //        $('#player').animate({
+ //        	'marginLeft' : "+=30px" //moves left
+ //        });
+ //    });
 
-	// // Level scrolling variables 
-	// var levelSpeed = 1;
-	// var levelX = 0;
 
-	// $("button").click(function() {
-	// 	alert(levelW);
-	// });
+ $("#player").animateSprite({
+    fps: 10,
+    animations: {
+        walkRight: [0, 1, 2, 3, 4, 5]
+    },
+    loop: true,
+    complete: function(){
+        // use complete only when you set animations with 'loop: false'
+        alert("animation End");
+    }
+});
 
-	
-	
+
 
 
 });

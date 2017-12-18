@@ -42,3 +42,11 @@ div {
 	left: 0px;
 	background: url(bgtile.jpg);
 }
+
+#ground {
+	width: 100%;
+	height: 3.5%;
+	top: 70%;
+	left: 0px;
+	background-image: url(ground.png);
+}

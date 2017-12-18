@@ -50,3 +50,11 @@ div {
 	left: 0px;
 	background-image: url(ground.png);
 }
+
+#player {
+	width: 32px;
+	height: 61px;
+	top: 57%;
+	background-image: url(idle0.png);
+
+}

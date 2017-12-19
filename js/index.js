@@ -1,32 +1,39 @@
 $(function() {
 
+	start();
 
-	 $("#player").animateSprite({
-	    fps: 10,
-	    animations: {
-	        walkRight: [0, 1, 2, 3, 4, 5]
-	    },
 
-	    loop: true,
-	    complete: function(){
-	        // use complete only when you set animations with 'loop: false'
-	        console.log("animation End");
-	    }
-	});
+	// Functionk to start the game
+	function start(){
+
+		$("#enemy1").animate({left: '-300'}, 10000, checkCollisions);
+		jump();
+		player();
+	}
+
+	function player(){
+		 $("#player").animateSprite({
+		    fps: 10,
+		    animations: {
+		        walkRight: [0, 1, 2, 3, 4, 5]
+		    },
+
+		    loop: true,
+		    complete: function(){
+		        // use complete only when you set animations with 'loop: false'
+		        console.log("animation End");
+		    }
+		});
+	}
 
 
 	function jump() {
 		 $("button").click(function() {
-			$("#player").animate({top: '15%'}, "slow");
-			$("#player").animate({top: '50%'}, "slow");
+			$("#player").animate({top: '15%'}, "slow", checkCollisions);
+			$("#player").animate({top: '50%'}, "slow", checkCollisions);
 
 		});
 	}
-
-	$("#enemy1").animate({left: '-300'}, 10000);
-	jump();
-
-
 
 	 // Collision detection
 	 function getPositions(box) {
@@ -44,7 +51,7 @@ $(function() {
 	 }
 
 	 function checkCollisions(){
-	   var box = $("#enemy1")[0];
+	   var box = $("#enemy1");
 	   var pos = getPositions(box);
 
 	   var pos2 = getPositions(this);
@@ -54,7 +61,7 @@ $(function() {
 	   if (match) { 
 	   	console.log("Collision");
 	   }
-	   return match;
+	   return !match;
 	 }
 
 });

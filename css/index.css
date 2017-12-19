@@ -44,6 +44,7 @@ div {
 	background: url(bgtile.jpg);
 	background-attachment: fixed;
 	background-repeat: repeat;
+	animation: animatedBackground 1000s linear infinite;
 }
 
 /* Ground */
@@ -53,6 +54,7 @@ div {
 	top: 70%;
 	left: 0px;
 	background-image: url(ground.png);
+
 }
 
 /* Player */
@@ -72,3 +74,14 @@ div {
 	left: 20%;
 	background-image: url(bird0.png);
 }
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 0;
+  }
+}
+
+

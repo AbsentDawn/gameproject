@@ -7,7 +7,6 @@ $(function() {
  //        });
  //    });
 
-
  $("#player").animateSprite({
     fps: 10,
     animations: {

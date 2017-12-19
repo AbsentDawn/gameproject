@@ -59,11 +59,19 @@ div {
 
 /* Player */
 #player {
-	width: 83px;
+	width: 84px;
 	height: 100px;
 	top: 50%;
 	left: 0%;
 	background-image: url(run-sprite.png);
+}
+
+#player #jump {
+	width: 83px;
+	height: 100px;
+	top: 50%;
+	left: 0%;
+	background-image: url(jump-sprite.png);
 }
 
 /* Enemy */
@@ -73,6 +81,7 @@ div {
 	top: 55%;
 	left: 20%;
 	background-image: url(bird0.png);
+	animation: moveEnemy 10s linear infinite;
 }
 
 @keyframes animatedBackground {
@@ -90,5 +99,13 @@ div {
 		background-position: 0 0;
 	} to {
 		background-position: -10000px 0;
+	}
+}
+
+@keyframes moveEnemy {
+	from {
+		left: 2000px;
+	} to {
+		left: -2000px;
 	}
 }

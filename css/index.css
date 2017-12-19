@@ -75,13 +75,23 @@ div {
 }*/
 
 /* Enemy */
-#enemy1 {
+#enemy {
 	width: 64px;
 	height: 41px;
 	top: 60%;
 	left: 80%;
 	background-image: url(bird0.png);
-/*	animation: moveEnemy 10s linear infinite;*/
+	animation: moveEnemy 10s linear infinite;
+}
+
+
+#enemy.add {
+	width: 64px;
+	height: 41px;
+	top: 60%;
+	left: 80%;
+	background-image: url(bird0.png);
+	animation: moveEnemy 10s linear infinite;
 }
 
 @keyframes animatedBackground {
@@ -102,10 +112,10 @@ div {
 	}
 }
 
-/*@keyframes moveEnemy {
+@keyframes moveEnemy {
 	from {
 		left: 2000px;
 	} to {
 		left: -2000px;
 	}
-}*/
+}

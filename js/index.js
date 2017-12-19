@@ -1,16 +1,27 @@
 $(function() {
+
 	start();
 
 
 	// Functionk to start the game
 	function start(){
-		$("#enemy1").animate({left: '-300'}, 10000);
+		
 		jump();
 		player();
 		
 		setInterval(function() {
-			checkCollisions($("#enemy1"), $("#player"));
+			checkCollisions($("#enemy"), $("#player"));
 		}, 20);
+	}
+
+
+
+	function moveEnemies() {
+		for(var i = 0; i < 100; i++) {
+			// $("#enemy1").animate({left: '-300'}, 10000);
+			$( "#enemy" ).addClass( "add" );
+			console.log(i);
+		}
 	}
 
 	function player(){

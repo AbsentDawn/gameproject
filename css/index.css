@@ -54,7 +54,7 @@ div {
 	top: 70%;
 	left: 0px;
 	background-image: url(ground.png);
-
+	animation: animatedGround 50s linear infinite;
 }
 
 /* Player */
@@ -85,3 +85,10 @@ div {
 }
 
 
+@keyframes animatedGround {
+	from {
+		background-position: 0 0;
+	} to {
+		background-position: -10000px 0;
+	}
+}

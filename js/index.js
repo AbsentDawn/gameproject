@@ -1,14 +1,10 @@
 $(function() {
 
 
- var player = $("#player");
- var enemy1 = $("#enemy1");
-
  $("#player").animateSprite({
     fps: 10,
     animations: {
-        walkRight: [0, 1, 2, 3, 4, 5],
-        jump: [7, 8]
+        walkRight: [0, 1, 2, 3, 4, 5]
     },
 
     loop: true,
@@ -21,39 +17,42 @@ $(function() {
 
 function jump() {
 	 $("button").click(function() {
-		$("#player").animate({top: '34%'}, "slow");
-		$("#player").animate({top: '50%'}, "slow");
+		$("#player").animate({top: '34%'}, "slow", checkCollisions);
+		$("#player").animate({top: '50%'}, "slow", checkCollisions);
+
 	});
 }
 
+$("#enemy1").animate({left: '-0.750'}, "slow", checkCollisions);
 jump();
 
 
 
+function getPositions(box) {
+  var $box = $(box);
+  var pos = $box.position();
+  var width = $box.width();
+  var height = $box.height();
+  return [ [ pos.left, pos.left + width ], [ pos.top, pos.top + height ] ];
+}
+        
+function comparePositions(p1, p2) {
+  var x1 = p1[0] < p2[0] ? p1 : p2;
+  var x2 = p1[0] < p2[0] ? p2 : p1;
+  return x1[1] > x2[0] || x1[0] === x2[0] ? true : false;
+}
 
-// if (collision(player, enemy1)){
-// 	console.log("collision");
-// }
+function checkCollisions(){
+  var box = $("#enemy1")[0];
+  var pos = getPositions(box);
 
-// function collision($div1, $div2) {
-//         var x1 = $div1.offset().left;
-//         var y1 = $div1.offset().top;
-//         var h1 = $div1.outerHeight(true);
-//         var w1 = $div1.outerWidth(true);
-//         var b1 = y1 + h1;
-//         var r1 = x1 + w1;
-//         var x2 = $div2.offset().left;
-//         var y2 = $div2.offset().top;
-//         var h2 = $div2.outerHeight(true);
-//         var w2 = $div2.outerWidth(true);
-//         var b2 = y2 + h2;
-//         var r2 = x2 + w2;
-
-//         if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
-//         return true;
-//       }
-
-//   )
-// }
+  var pos2 = getPositions(this);
+  var horizontalMatch = comparePositions(pos[0], pos2[0]);
+  var verticalMatch = comparePositions(pos[1], pos2[1]);            
+  var match = horizontalMatch && verticalMatch;
+  if (match) { 
+  	console.log("Collision");
+  }
+}
 
 });

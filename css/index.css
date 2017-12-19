@@ -59,29 +59,29 @@ div {
 
 /* Player */
 #player {
-	width: 84px;
+	width: 83px;
 	height: 100px;
 	top: 50%;
 	left: 0%;
 	background-image: url(run-sprite.png);
 }
 
-#player #jump {
+/*#player #jump {
 	width: 83px;
 	height: 100px;
 	top: 50%;
 	left: 0%;
-	background-image: url(jump-sprite.png);
-}
+	background-image: ;
+}*/
 
 /* Enemy */
 #enemy1 {
 	width: 64px;
 	height: 41px;
 	top: 55%;
-	left: 20%;
+	left: 80%;
 	background-image: url(bird0.png);
-	animation: moveEnemy 10s linear infinite;
+/*	animation: moveEnemy 10s linear infinite;*/
 }
 
 @keyframes animatedBackground {
@@ -102,10 +102,10 @@ div {
 	}
 }
 
-@keyframes moveEnemy {
+/*@keyframes moveEnemy {
 	from {
 		left: 2000px;
 	} to {
 		left: -2000px;
 	}
-}
+}*/

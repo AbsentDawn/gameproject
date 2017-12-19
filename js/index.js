@@ -1,12 +1,5 @@
 $(function() {
 
-
-	// $('button').click(function() {
- //        $('#player').animate({
- //        	'marginLeft' : "+=30px" //moves left
- //        });
- //    });
-
  $("#player").animateSprite({
     fps: 10,
     animations: {

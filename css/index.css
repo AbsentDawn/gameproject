@@ -102,9 +102,7 @@ div {
 }*/
 
 /* Enemy */
-
-
-#enemy {
+.enemy {
 	width: 64px;
 	height: 41px;
 	top: 60%;
@@ -113,40 +111,40 @@ div {
 	animation: moveEnemy 15s linear infinite;
 }
 
-#enemy0 {
+.enemy[bird="bird0"]  {
 	width: 64px;
 	height: 41px;
-	top: -50px;
+	top: 55%;
 	left: 100%;
 	background-image: url(bird0.png);
-	animation: moveEnemy 30s linear infinite;
+	animation: moveEnemy 8s linear infinite;
 }
 
-#enemy1 {
+.enemy[bird="bird1"] {
 	width: 64px;
 	height: 41px;
-	top: -15px;
+	top: 53%;
 	left: 70%;
 	background-image: url(bird0.png);
-	animation: moveEnemy 20s linear infinite;
+	animation: moveEnemy 19s linear infinite;
 }
 
-#enemy2 {
+.enemy[bird="bird2"]  {
 	width: 64px;
 	height: 41px;
-	top: 0px;
+	top: 50%;
 	left: 90%;
 	background-image: url(bird0.png);
-	animation: moveEnemy 35s linear infinite;
+	animation: moveEnemy 10s linear infinite;
 }
 
-#enemy3 {
+.enemy[bird="bird3"] {
 	width: 64px;
 	height: 41px;
-	top: -80px;
+	top: 59%;
 	left: 80%;
 	background-image: url(bird0.png);
-	animation: moveEnemy 50s linear infinite;
+	animation: moveEnemy 12s linear infinite;
 }
 
 #spawnButton {

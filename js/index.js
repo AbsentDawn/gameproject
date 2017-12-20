@@ -5,22 +5,26 @@ $(function() {
 	var levelW = level.width();
 	var levelH = level.height();
 	var score = 0;
+	var lose = loseLogic();
 
 	startButton();
 
-	// Functionk to start the game
+	// Function to start the game
 	function start(){
 		spawnEnemies();
-		
 		duck();
 		jump();
 		increaseScore();
 		player();
-		setInterval(function() {
-			winLogic();
-		}, 20);
-		
-		
+		// setInterval(function() {
+		// 	loseLogic();
+		// }, 20);
+
+		loseLogic();
+
+		// if(lose){
+		// 	reset();
+		// }
 	}
 
 	function startButton() {
@@ -30,32 +34,41 @@ $(function() {
 		})
 	}
 
-	function winLogic() {
-		if(checkCollisions($("#enemy"), $("#player"))) {
-			alert("you lose");
-		}
+	// If player wins
+	function loseLogic() {
+		// $(".enemy").each(function() {
+		// 	collision($(".enemy"), $("#player"));
+		// 	console.log($(".enemy"));
+		// });
+
+		$.each($enemies, function(index, value) {
+			collision($(value), $("#player"));
+		});	
 	}
 
-	function collision() {
+
+	function reset() {
+		score = 0;
+		$('#score').text('score: ' + score);
+		playbutton.style.display = 'block';
+		$("#ground").stop();
+		$("#background").stop();
+		// $("#enemy").each(function() {
+
+		// })
+	}
+
+	function collision(enemy, player) {
 		setInterval(function() {
-			checkCollisions($("#enemy"), $("#player"));
+			checkCollisions(enemy, player);
 		}, 20);
 	}
 
 	function spawnEnemies() {
 		for(var i = 0; i < 4; i++){
 			// var enemy = $('#enemy').append('<div id="enemy"></div>');
-			$enemies.push($('<div>', { id: 'enemy' + i}));
-			$("#enemy").append($enemies);
-			randomEnemies($enemies);
-			console.log($enemies);
-		}
-	}
-
-	function randomEnemies($selector) {
-		for(var i = 0; i < $selector.length; i++) {
-			// $selector.width = Math.floor(Math.random() * levelW);
-    		console.log($selector);
+			$enemies.push($('<div>', { class: 'enemy', bird: 'bird' + i}));
+			$("#level").append($enemies);
 		}
 	}
 
@@ -68,7 +81,7 @@ $(function() {
 
 	function player(){
 		 $("#player").animateSprite({
-		    fps: 10,
+		    fps: 12,
 		    animations: {
 		        walkRight: [0, 1, 2, 3, 4, 5]
 		    },
@@ -79,8 +92,6 @@ $(function() {
 		        console.log("animation End");
 		    }
 		});
-		 score++;
-
 	}
 
 

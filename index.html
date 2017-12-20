@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Runner man</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- css -->
-	<link rel="stylesheet" type="text/css" href="css/index.css">
-	<!-- JQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<!-- Animate plugin -->
-	<script type="text/javascript" src="js/animate.js"></script>
-	<!-- Gamequery plugin -->
-	<script type="text/javascript" src="js/gamequery.js"></script>
-	<!-- javascript -->
-	<script type="text/javascript" src="js/index.js"></script>
-</head>
-<body>
+	<head>
+		<title>Runner man</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- css -->
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<!-- JQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<!-- Animate plugin -->
+		<script type="text/javascript" src="js/animate.js"></script>
+		<!-- Gamequery plugin -->
+		<script type="text/javascript" src="js/gamequery.js"></script>
+		<!-- javascript -->
+		<script type="text/javascript" src="js/index.js"></script>
+	</head>
+	<body>
 
 
-	<!-- Make the viewport the same size and the background image -->
-	<div id='viewport'>
-		<div id='background'>
-			<div id='level'>
+		<!-- Make the viewport the same size and the background image -->
+		<div id='viewport'>
+			<div id='background'>
+				<div id='level'>
 
-				<div id='ground'></div>
-				<div id='player' id='jump'></div>
-				<div id='enemy'></div>
+					<div id='ground'></div>
+					<div id='player' id='jump'></div>
+					<div class='enemy'></div>
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<button id='jumpButton'>Press to jump</button>
-	<button id='duckButton'>Press to Duck</button>
+		<button id='jumpButton'>Press to jump</button>
+		<button id='duckButton'>Press to Duck</button>
 
-	<div id='score'>Score: 0</div>
+		<div id='score'>Score: 0</div>
 
-	<a id="playbutton" href="javascript:startButton()">Click to start</a>
-</body>
+		<a id="playbutton" href="javascript:startButton()">Click to start</a>
+
+		<!-- <audio controls>
+		  <source src="audio/ffx.mp3" type="audio/mpeg">
+		  Your browser does not support the audio tag.
+		</audio> -->
+	</body>
 </html>

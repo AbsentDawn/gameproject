@@ -4,6 +4,7 @@ $(function() {
 	var level = $("#level");
 	var levelW = level.width();
 	var levelH = level.height();
+	var score = 0;
 
 	start();
 
@@ -12,6 +13,7 @@ $(function() {
 		spawnEnemies();
 		duck();
 		jump();
+		increaseScore();
 		player();
 		
 	}
@@ -40,6 +42,13 @@ $(function() {
 		}
 	}
 
+	function increaseScore() {
+		setInterval(function() {
+			score++
+			$('#score').text('score: ' + score);
+		}, 100);		
+	}
+
 	function player(){
 		 $("#player").animateSprite({
 		    fps: 10,
@@ -53,6 +62,8 @@ $(function() {
 		        console.log("animation End");
 		    }
 		});
+		 score++;
+
 	}
 
 

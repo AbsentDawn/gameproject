@@ -102,14 +102,6 @@ div {
 }*/
 
 /* Enemy */
-.enemy {
-	width: 64px;
-	height: 41px;
-	top: 60%;
-	left: 80%;
-	background-image: url(bird0.png);
-	animation: moveEnemy 15s linear infinite;
-}
 
 
 #enemy {

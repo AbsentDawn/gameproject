@@ -11,10 +11,15 @@ $(function() {
 	// Functionk to start the game
 	function start(){
 		spawnEnemies();
+		
 		duck();
 		jump();
 		increaseScore();
 		player();
+		setInterval(function() {
+			winLogic();
+		}, 20);
+		
 		
 	}
 
@@ -25,9 +30,15 @@ $(function() {
 		})
 	}
 
+	function winLogic() {
+		if(checkCollisions($("#enemy"), $("#player"))) {
+			alert("you lose");
+		}
+	}
+
 	function collision() {
 		setInterval(function() {
-			checkCollisions($(".enemy"), $("#player"));
+			checkCollisions($("#enemy"), $("#player"));
 		}, 20);
 	}
 
@@ -35,7 +46,7 @@ $(function() {
 		for(var i = 0; i < 4; i++){
 			// var enemy = $('#enemy').append('<div id="enemy"></div>');
 			$enemies.push($('<div>', { id: 'enemy' + i}));
-			$(".enemy").append($enemies);
+			$("#enemy").append($enemies);
 			randomEnemies($enemies);
 			console.log($enemies);
 		}

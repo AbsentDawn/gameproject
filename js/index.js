@@ -6,7 +6,7 @@ $(function() {
 	var levelH = level.height();
 	var score = 0;
 
-	start();
+	startButton();
 
 	// Functionk to start the game
 	function start(){
@@ -18,6 +18,12 @@ $(function() {
 		
 	}
 
+	function startButton() {
+		$("#playbutton").click(function() {
+			playbutton.style.display = 'none';
+			start();
+		})
+	}
 
 	function collision() {
 		setInterval(function() {

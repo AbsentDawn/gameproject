@@ -1,26 +1,42 @@
 $(function() {
 
-	start();
+	var $enemies = [];
+	var level = $("#level");
+	var levelW = level.width();
+	var levelH = level.height();
 
+	start();
 
 	// Functionk to start the game
 	function start(){
-		
+		spawnEnemies();
+		duck();
 		jump();
 		player();
 		
-		setInterval(function() {
-			checkCollisions($("#enemy"), $("#player"));
-		}, 20);
 	}
 
 
+	function collision() {
+		setInterval(function() {
+			checkCollisions($(".enemy"), $("#player"));
+		}, 20);
+	}
 
-	function moveEnemies() {
-		for(var i = 0; i < 100; i++) {
-			// $("#enemy1").animate({left: '-300'}, 10000);
-			$( "#enemy" ).addClass( "add" );
-			console.log(i);
+	function spawnEnemies() {
+		for(var i = 0; i < 4; i++){
+			// var enemy = $('#enemy').append('<div id="enemy"></div>');
+			$enemies.push($('<div>', { id: 'enemy' + i}));
+			$(".enemy").append($enemies);
+			randomEnemies($enemies);
+			console.log($enemies);
+		}
+	}
+
+	function randomEnemies($selector) {
+		for(var i = 0; i < $selector.length; i++) {
+			// $selector.width = Math.floor(Math.random() * levelW);
+    		console.log($selector);
 		}
 	}
 
@@ -41,8 +57,16 @@ $(function() {
 
 
 	function jump() {
-		 $("button").click(function() {
+		 $("#jumpButton").click(function() {
 			$("#player").animate({top: '15%'}, "slow");
+			$("#player").animate({top: '50%'}, "slow");
+
+		});
+	}
+
+	function duck() {
+		 $("#duckButton").click(function() {
+			$("#player").animate({top: '75%'}, "slow");
 			$("#player").animate({top: '50%'}, "slow");
 
 		});

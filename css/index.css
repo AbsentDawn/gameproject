@@ -72,6 +72,7 @@ div {
 	background-attachment: fixed;
 	background-repeat: repeat;
 	animation: animatedBackground 1000s linear infinite;
+	animation-play-state: running;
 }
 
 /* Ground */
@@ -82,6 +83,7 @@ div {
 	left: 0px;
 	background-image: url(ground.png);
 	animation: animatedGround 50s linear infinite;
+	animation-play-state: running;
 }
 
 /* Player */
@@ -118,6 +120,7 @@ div {
 	left: 100%;
 	background-image: url(bird0.png);
 	animation: moveEnemy 8s linear infinite;
+	animation-play-state: running;
 }
 
 .enemy[bird="bird1"] {
@@ -127,6 +130,7 @@ div {
 	left: 70%;
 	background-image: url(bird0.png);
 	animation: moveEnemy 19s linear infinite;
+	animation-play-state: running;
 }
 
 .enemy[bird="bird2"]  {
@@ -136,6 +140,7 @@ div {
 	left: 90%;
 	background-image: url(bird0.png);
 	animation: moveEnemy 10s linear infinite;
+	animation-play-state: running;
 }
 
 .enemy[bird="bird3"] {
@@ -145,6 +150,7 @@ div {
 	left: 80%;
 	background-image: url(bird0.png);
 	animation: moveEnemy 12s linear infinite;
+	animation-play-state: running;
 }
 
 #spawnButton {

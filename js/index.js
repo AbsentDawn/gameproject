@@ -6,6 +6,7 @@ $(function() {
 	var levelH = level.height();
 	var score = 0;
 	var hasLost = true;
+	var movement = [];
 
 	startButton();
 
@@ -16,9 +17,9 @@ $(function() {
 		$("#background").removeAttr('style');
 
 		player();
-		jump();
-		accelerate();
-		duck();
+		// jump();
+		// accelerate();
+		// duck();
 		spawnEnemies();
 		increaseScore();
 		// loseLogic();
@@ -101,49 +102,111 @@ $(function() {
 	}
 
 
-	function jump() {
-		$("body").keydown(function(e) {
-			if(e.keyCode == 38){
-				$("#player").animate({top: '7%'}, "slow", function() {
- 				console.log("player jumped");
- 				});
-				$("#player").animate({top: '50%'}, "slow", function() {
- 				console.log("player landed");
- 				});
-			}
-		});	
+	// function jump() {
+	// 	$("body").keydown(function(e) {
+	// 		if(e.keyCode == 38){
+	// 			$("#player").animate({top: '7%'}, "slow", function() {
+ // 				console.log("player jumped");
+ // 				});
+	// 			$("#player").animate({top: '50%'}, "slow", function() {
+ // 				console.log("player landed");
+ // 				});
+	// 		}
+	// 	});	
 
-		$("body").keyup(function(e) {
-			if(e.keyCode == 38){
+	// 	$("body").keyup(function(e) {
+	// 		if(e.keyCode == 38){
 				
-				$("#player").dequeue();
-				$("#player").clearQueue();
-			}
-		});	
+	// 			$("#player").dequeue();
+	// 			$("#player").clearQueue();
+	// 		}
+	// 	});	
+	// }
 
+	// function accelerate() {
+	// 	$("body").keydown(function(e) {
+	// 		var right = parseInt($("#player").css("left"));
+	// 		if(e.keyCode == 39){
+ // 				$("#player").css('left', right += 1);
+	// 		}
+	// 	});
+
+	// 	$("body").keyup(function(e) {
+	// 		$("#player").animate({left: '0%'}, "slow", function() {
+ // 				console.log("player is in default position");
+ // 			}); 
+	// 	});	
+	// }
+
+	// function runAndJump() {
+	// 	$("body").keydown(function(e){
+	// 		var right = parseInt($("#player").css("left"));
+	// 		if(e.keyCode == 38 && e.keyCode == 39) {
+	// 			$("#player").css('left', right += 1);
+	// 			$("#player").css('top',  right += 1);
+
+	// 		}
+	// 	});
+
+	// 	$("body").keyup(function(e) {
+	// 		$("#player").animate({left: '0%'}, "slow", function() {
+ // 				console.log("player is in default position");
+ // 			}); 
+	// 	});	
+	// }
+
+	// function duck() {
+	// 	 $("#duckButton").click(function() {
+	// 		$("#player").animate({top: '75%'}, "fast");
+	// 		$("#player").animate({top: '50%'}, "fast");
+
+	// 	});
+	// }
+
+	var buttons = {
+		// Up key
+		38: {
+			top: "-=1"
+		}, 
+
+		// Right Key
+		39: {
+			left: "+=1"
+		},
+
+		// Down Key
+		40: {
+			top: "+=1"
+		}
 	}
 
-	function accelerate() {
-		$("body").keydown(function(e) {
-			var right = parseInt($("#player").css("left"))
-			if(e.keyCode == 39){
- 				$("#player").css('left', right += 1);
-			}
-		});
+	$(document).on({
+		keydown: keyDown, 
+		keyup: keyUp
+	});
 
-		$("body").keyup(function(e) {
-			$("#player").animate({left: '0%'}, "slow", function() {
- 					console.log("player is in default position");
- 				}); 
-		})	
+	function keyDown(e) {
+		var key = e.which;
+		var animation = buttons[key];
+		if(!movement[key]) {
+			movement[key] = setInterval(theAnimation, 1);
+		}
+
+		function theAnimation() {
+			$("#player").css(animation);
+		}
 	}
 
-	function duck() {
-		 $("#duckButton").click(function() {
-			$("#player").animate({top: '75%'}, "fast");
-			$("#player").animate({top: '50%'}, "fast");
+	function keyUp(e) {
+		var key = e.which
+		movement[key] = clearInterval(movement[key]);
+		$("#player").animate({top: '50%'}, "slow");
+		$("#player").animate({left: '0%'}, "slow");
+	}
 
-		});
+
+	function keepPlayerBack() {
+
 	}
 
 	  // Collision detection

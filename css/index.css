@@ -105,50 +105,50 @@ div {
 
 /* Enemy */
 .enemy {
-	width: 64px;
-	height: 41px;
+	width: 32px;
+	height: 32px;
 	top: 60%;
 	left: 85%;
-	background-image: url(bird0.png);
+	background-image: url(sprite-bird1.png);
 	animation: moveEnemy 15s linear infinite;
 }
 
 .enemy[bird="bird0"]  {
-	width: 64px;
-	height: 41px;
+	width: 32px;
+	height: 32px;
 	top: 55%;
 	left: 100%;
-	background-image: url(bird0.png);
+	background-image: url(sprite-bird1.png);
 	animation: moveEnemy 8s linear infinite;
 	animation-play-state: running;
 }
 
 .enemy[bird="bird1"] {
-	width: 64px;
-	height: 41px;
+	width: 50px;
+	height: 32px;	
 	top: 53%;
 	left: 70%;
-	background-image: url(bird0.png);
+	background-image: url(sprite-bird1.png);
 	animation: moveEnemy 19s linear infinite;
 	animation-play-state: running;
 }
 
 .enemy[bird="bird2"]  {
-	width: 64px;
-	height: 41px;
+	width: 32px;
+	height: 32px;
 	top: 50%;
 	left: 90%;
-	background-image: url(bird0.png);
+	background-image: url(sprite-bird1.png);
 	animation: moveEnemy 10s linear infinite;
 	animation-play-state: running;
 }
 
 .enemy[bird="bird3"] {
-	width: 64px;
-	height: 41px;
+	width: 32px;
+	height: 32px;
 	top: 59%;
 	left: 80%;
-	background-image: url(bird0.png);
+	background-image: url(sprite-bird1.png);
 	animation: moveEnemy 12s linear infinite;
 	animation-play-state: running;
 }

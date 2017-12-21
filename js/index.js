@@ -17,10 +17,11 @@ $(function() {
 
 		player();
 		jump();
+		accelerate();
 		duck();
 		spawnEnemies();
 		increaseScore();
-		loseLogic();
+		// loseLogic();
 	}
 
 	function startButton() {
@@ -111,6 +112,7 @@ $(function() {
  				});
 			}
 		});	
+
 		$("body").keyup(function(e) {
 			if(e.keyCode == 38){
 				$("#player").clearQueue();
@@ -120,18 +122,23 @@ $(function() {
 
 	}
 
-	// function accelerate() {
-	// 	$("body").keydown(function(e) {
-	// 		if(e.keyCode == 39){
-	// 			$("#player").animate({top: '7%'}, "slow", function() {
- // 				console.log("player jumped");
- // 				});
-	// 			$("#player").stop().animate({top: '50%'}, "slow", function() {
- // 				console.log("player landed");
- // 				});
-	// 		}
-	// 	});	
-	// }
+	function accelerate() {
+		$("body").keydown(function(e) {
+			var right = parseInt($("#player").css("left"))
+			if(e.keyCode == 39){
+				// $("#player").animate({left: '5%'}, "slow", function() {
+ 			// 	console.log("player accelerated");
+ 			// 	});
+ 				$("#player").css('left', right += 10);
+			}
+		});
+
+		$("body").keyup(function(e) {
+			$("#player").animate({left: '0%'}, "slow", function() {
+ 					console.log("player is in default position");
+ 				});
+		})	
+	}
 
 	function duck() {
 		 $("#duckButton").click(function() {

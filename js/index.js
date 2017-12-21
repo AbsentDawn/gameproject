@@ -115,8 +115,9 @@ $(function() {
 
 		$("body").keyup(function(e) {
 			if(e.keyCode == 38){
-				// $("#player").clearQueue();
+				
 				$("#player").dequeue();
+				$("#player").clearQueue();
 			}
 		});	
 

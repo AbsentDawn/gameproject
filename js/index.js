@@ -115,7 +115,7 @@ $(function() {
 
 		$("body").keyup(function(e) {
 			if(e.keyCode == 38){
-				$("#player").clearQueue();
+				// $("#player").clearQueue();
 				$("#player").dequeue();
 			}
 		});	
@@ -126,17 +126,14 @@ $(function() {
 		$("body").keydown(function(e) {
 			var right = parseInt($("#player").css("left"))
 			if(e.keyCode == 39){
-				// $("#player").animate({left: '5%'}, "slow", function() {
- 			// 	console.log("player accelerated");
- 			// 	});
- 				$("#player").css('left', right += 10);
+ 				$("#player").css('left', right += 1);
 			}
 		});
 
 		$("body").keyup(function(e) {
 			$("#player").animate({left: '0%'}, "slow", function() {
  					console.log("player is in default position");
- 				});
+ 				}); 
 		})	
 	}
 

@@ -14,13 +14,13 @@ $(function() {
 		score = 0;
 		$("#ground").removeAttr('style');
 		$("#background").removeAttr('style');
+
 		player();
-		spawnEnemies();
-		duck();
 		jump();
+		duck();
+		spawnEnemies();
 		increaseScore();
 		loseLogic();
-		console.log(hasLost);
 	}
 
 	function startButton() {
@@ -52,9 +52,10 @@ $(function() {
 		setTimeout(function() {
 			$("#ground").css("animation", "0s");
 			$("#background").css("animation", "0s");
+			$("#player").clearQueue();
 		}, 5);
 
-		player(false);
+
 
 		playbutton.style.display = 'block';
 	}
@@ -62,14 +63,10 @@ $(function() {
 	function collision(enemy, player) {
 		setInterval(function() {
 			if(checkCollisions(enemy, player)){
-				alert("You have lost");
+				alert("You have lost! score: " + score);
 				reset();
 			}
 		}, 20);
-	}
-
-	function lostMessage() {
-		alert("You have lost!");
 	}
 
 	function spawnEnemies() {
@@ -104,12 +101,37 @@ $(function() {
 
 
 	function jump() {
-		 $("#jumpButton").click(function() {
-			$("#player").animate({top: '15%'}, 900);
-			$("#player").animate({top: '50%'}, 200);
+		$("body").keydown(function(e) {
+			if(e.keyCode == 38){
+				$("#player").animate({top: '7%'}, "slow", function() {
+ 				console.log("player jumped");
+ 				});
+				$("#player").animate({top: '50%'}, "slow", function() {
+ 				console.log("player landed");
+ 				});
+			}
+		});	
+		$("body").keyup(function(e) {
+			if(e.keyCode == 38){
+				$("#player").clearQueue();
+				$("#player").dequeue();
+			}
+		});	
 
-		});
 	}
+
+	// function accelerate() {
+	// 	$("body").keydown(function(e) {
+	// 		if(e.keyCode == 39){
+	// 			$("#player").animate({top: '7%'}, "slow", function() {
+ // 				console.log("player jumped");
+ // 				});
+	// 			$("#player").stop().animate({top: '50%'}, "slow", function() {
+ // 				console.log("player landed");
+ // 				});
+	// 		}
+	// 	});	
+	// }
 
 	function duck() {
 		 $("#duckButton").click(function() {

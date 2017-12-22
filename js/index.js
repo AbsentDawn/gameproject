@@ -86,7 +86,6 @@ $(function() {
 		}, 5);
 
 
-
 		playbutton.style.display = 'block';
 	}
 

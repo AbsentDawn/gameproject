@@ -187,7 +187,6 @@ $(function() {
 		}
 	}
 
-
 	function keepPlayerBack() {
 		$("#player").animate({top: '50%'}, "fast");
 		$("#player").animate({left: '0%'}, "fast");

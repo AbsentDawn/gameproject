@@ -5,7 +5,6 @@ $(function() {
 	var movement = [];
 	var playerAnimation = player();
 	var enemyAnimation = enemy();
-	var event;
 
 		var buttons = {
 		// Up key
@@ -83,7 +82,7 @@ $(function() {
 		setTimeout(function() {
 			$("#ground").css("animation", "0s");
 			$("#background").css("animation", "0s");
-			keyUp(this);
+			keyUp(event);
 		}, 5);
 
 
@@ -95,7 +94,7 @@ $(function() {
 	function collision(enemy, player) {
 		setInterval(function() {
 			if(checkCollisions(enemy, player)){
-				alert("You have lost! score: " + score);
+				alert("You have lost! Score: " + score);
 				reset();
 			}
 		}, 20);
@@ -119,7 +118,7 @@ $(function() {
 	function increaseScore() {
 		setInterval(function() {
 			score++
-			$('#score').text('score: ' + score);
+			$('#score').text('Score: ' + score);
 		}, 100);		
 	}	
 
@@ -180,6 +179,13 @@ $(function() {
 		$("#player").animate({top: '50%'}, "slow");
 		$("#player").animate({left: '0%'}, "slow");
 		console.log("up", key, movement[key]);
+	}
+
+	function emptyKeyPress(e) {
+		var key = e.which;
+		for(var i = 0; i < movement.length; i++) {
+			movement[i].pop();
+		}
 	}
 
 

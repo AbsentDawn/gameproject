@@ -28,6 +28,9 @@ div {
 	margin-top: -240px;
 }
 
+#score {
+	color: red;
+}
 
 
 #playbutton { 

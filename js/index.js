@@ -5,6 +5,7 @@ $(function() {
 	var movement = [];
 	var playerAnimation = player();
 	var enemyAnimation = enemy();
+	var event;
 
 		var buttons = {
 		// Up key
@@ -67,6 +68,7 @@ $(function() {
 
 	// Reset game
 	function reset() {
+		$("#player").removeAttr('style');
 		// Set Score back to nil
 		score = 0;
 		$('#score').text('score: ' + score);
@@ -81,10 +83,7 @@ $(function() {
 		setTimeout(function() {
 			$("#ground").css("animation", "0s");
 			$("#background").css("animation", "0s");
-			// $("#player").remove();
-			$("#player").dequeue();
-			// $("#player").clearQueue();
-			// keepPlayerBack();
+			keyUp(this);
 		}, 5);
 
 
@@ -162,6 +161,7 @@ $(function() {
 
 	// function jump() {
 	// 	$("body").keydown(function(e) {
+	// 		var up = parseInt($("#player").css("top"));
 	// 		if(e.keyCode == 38){
 	// 			$("#player").animate({top: '7%'}, "slow", function() {
  // 				console.log("player jumped");
@@ -174,7 +174,7 @@ $(function() {
 
 	// 	$("body").keyup(function(e) {
 	// 		if(e.keyCode == 38){
-				
+	// 			keepPlayerBack();
 	// 			$("#player").dequeue();
 	// 			$("#player").clearQueue();
 	// 		}
@@ -219,6 +219,20 @@ $(function() {
 	// 		$("#player").animate({top: '50%'}, "fast");
 
 	// 	});
+
+
+	// 	 $("body").keydown(function(e){
+	// 		var down = parseInt($("#player").css("top"));
+	// 		if(e.keyCode == 40) {
+	// 			$("#player").css('top',  down += 1);
+	// 		}
+	// 	});
+
+	// 	$("body").keyup(function(e) {
+	// 		$("#player").animate({left: '0%'}, "slow", function() {
+ // 				console.log("player is in default position");
+ // 			}); 
+	// 	});	
 	// }
 
 	// Key down events
